@@ -57,17 +57,19 @@ test('opens details from the keyboard, contains focus and returns it on Escape',
   const close = dialog.getByRole('button', { name: 'Close resource details' })
   await expect(close).toBeFocused()
   await expect(dialog.getByText('10 July 2025')).toBeVisible()
-  await page.keyboard.press('Tab')
-  // Native dialogs contain tab focus; the document itself may be the active
-  // element at the wrap boundary, but no background control may receive it.
-  expect(
-    await page.evaluate(() => {
+  // Native tab order varies between engines, including the scrollable dialog
+  // itself. Verify containment in both directions, not one engine's tab order.
+  for (const key of ['Tab', 'Tab', 'Shift+Tab', 'Shift+Tab']) {
+    await page.keyboard.press(key)
+    const focus = await page.evaluate(() => {
       const active = document.activeElement
-      return active === document.body || !!active?.closest('dialog')
-    }),
-  ).toBe(true)
-  await page.keyboard.press('Shift+Tab')
-  await expect(close).toBeFocused()
+      return {
+        allowed: active === document.body || !!active?.closest('dialog'),
+        element: active?.outerHTML.slice(0, 150) ?? 'No active element',
+      }
+    })
+    expect(focus.allowed, focus.element).toBe(true)
+  }
   await page.keyboard.press('Escape')
   await expect(dialog).not.toBeVisible()
   await expect(trigger).toBeFocused()
