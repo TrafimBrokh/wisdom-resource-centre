@@ -1,20 +1,11 @@
 import { useRef, useState } from 'react'
-import { BookOpen, Dumbbell, Flower2, Headphones, Heart, Newspaper, Search, Sprout, Utensils, X } from 'lucide-react'
+import { Heart, Search, Sprout, X } from 'lucide-react'
 import { mockResources } from './resources/mockResources'
 import { groupResources } from './resources/catalogue'
 import { filterResources } from './resources/filterResources'
-import { ResourceCard } from './resources/ResourceCard'
+import { ResourceSection } from './resources/ResourceSection'
 import { ResourceDialog } from './resources/ResourceDialog'
-import type { Category, Resource, SortOrder } from './resources/types'
-
-const categoryPresentation = {
-  Podcasts: { icon: Headphones, description: 'Good company for your everyday moments.' },
-  Articles: { icon: BookOpen, description: 'Fresh perspectives, at your own pace.' },
-  Newsletters: { icon: Newspaper, description: 'A little inspiration for the week ahead.' },
-  Recipes: { icon: Utensils, description: 'Simple ideas to nourish your day.' },
-  Fitness: { icon: Dumbbell, description: 'Find movement that feels good for you.' },
-  Meditation: { icon: Flower2, description: 'Slow down. Breathe. Begin again.' },
-} satisfies Record<Category, { icon: typeof Heart; description: string }>
+import type { Resource, SortOrder } from './resources/types'
 
 interface AppProps {
   resources?: readonly Resource[]
@@ -79,21 +70,7 @@ export default function App({ resources = mockResources }: AppProps) {
           <p role="status" aria-live="polite" aria-atomic="true"><strong>{filtered.length} {filtered.length === 1 ? 'resource' : 'resources'}</strong> · {groups.length} {groups.length === 1 ? 'category' : 'categories'}</p>
           <p id="sort-help">Date sorting applies within each category.</p>
         </div>
-        {groups.map(({ category, resources: items }) => {
-          const { icon: Icon, description } = categoryPresentation[category]
-          const headingId = `category-${category.toLowerCase()}`
-          return (
-            <section className="resource-section" key={category} aria-labelledby={headingId}>
-              <div className="category-intro">
-                <div className="category-icon"><Icon size={22} aria-hidden="true" /></div>
-                <h2 id={headingId}>{category}</h2>
-                <p>{description}</p>
-                <span className="category-count">{items.length} {items.length === 1 ? 'resource' : 'resources'}</span>
-              </div>
-              <div className="resource-grid">{items.map((resource) => <ResourceCard key={resource.id} resource={resource} onOpen={setSelectedResource} />)}</div>
-            </section>
-          )
-        })}
+        {groups.map((group) => <ResourceSection key={group.category} group={group} onOpen={setSelectedResource} />)}
         {groups.length === 0 && (
           <div className="empty-state">
             <Search size={32} aria-hidden="true" />
