@@ -4,9 +4,10 @@ import type { Resource } from './types'
 
 interface ResourceCardProps {
   resource: Resource
+  onOpen: (resource: Resource) => void
 }
 
-export function ResourceCard({ resource }: ResourceCardProps) {
+export function ResourceCard({ resource, onOpen }: ResourceCardProps) {
   return (
     <article className="resource-card">
       <div className="card-media">
@@ -19,7 +20,7 @@ export function ResourceCard({ resource }: ResourceCardProps) {
         </div>
         <div className="card-title-row">
           <h3>
-            <button className="card-open" type="button" aria-label={`View ${resource.title}`}>
+            <button className="card-open" type="button" aria-label={`View ${resource.title}`} onClick={() => onOpen(resource)}>
               {resource.title}
               <ArrowUpRight className="card-arrow" size={17} aria-hidden="true" />
             </button>

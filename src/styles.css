@@ -94,6 +94,7 @@ h1 span { color: #5e7864; }
 .app-footer a { text-underline-offset: 4px; }
 .resource-dialog { position: fixed; inset: 0; border: 1px solid #e1e8dc; padding: 0; width: min(660px, calc(100% - 32px)); max-height: calc(100dvh - 48px); border-radius: 20px; color: #173d36; background: #fff; overscroll-behavior: contain; }
 .resource-dialog::backdrop { background: #102e29a6; backdrop-filter: blur(5px); }
+.resource-dialog { overflow-y: auto; }
 .dialog-close { position: absolute; top: 14px; right: 14px; background: #fff; box-shadow: 0 2px 8px #173d3633; width: 44px; height: 44px; z-index: 1; }
 .resource-dialog .resource-image { aspect-ratio: 16 / 7; }
 .dialog-content { padding: 29px 34px 34px; }

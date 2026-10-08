@@ -4,6 +4,7 @@ import { mockResources } from './resources/mockResources'
 import { groupResources } from './resources/catalogue'
 import { filterResources } from './resources/filterResources'
 import { ResourceCard } from './resources/ResourceCard'
+import { ResourceDialog } from './resources/ResourceDialog'
 import type { Category, Resource, SortOrder } from './resources/types'
 
 const categoryPresentation = {
@@ -22,6 +23,7 @@ interface AppProps {
 export default function App({ resources = mockResources }: AppProps) {
   const [query, setQuery] = useState('')
   const [sort, setSort] = useState<SortOrder>('default')
+  const [selectedResource, setSelectedResource] = useState<Resource | null>(null)
   const searchInput = useRef<HTMLInputElement>(null)
   const filtered = filterResources(resources, query)
   const groups = groupResources(filtered, sort)
@@ -88,7 +90,7 @@ export default function App({ resources = mockResources }: AppProps) {
                 <p>{description}</p>
                 <span className="category-count">{items.length} {items.length === 1 ? 'resource' : 'resources'}</span>
               </div>
-              <div className="resource-grid">{items.map((resource) => <ResourceCard key={resource.id} resource={resource} />)}</div>
+              <div className="resource-grid">{items.map((resource) => <ResourceCard key={resource.id} resource={resource} onOpen={setSelectedResource} />)}</div>
             </section>
           )
         })}
@@ -102,6 +104,7 @@ export default function App({ resources = mockResources }: AppProps) {
         )}
       </main>
       <footer className="shell app-footer"><p>Space for a healthier, happier you.</p><a href="#top">Back to top ↑</a></footer>
+      {selectedResource && <ResourceDialog key={selectedResource.id} resource={selectedResource} onClose={() => setSelectedResource(null)} />}
     </>
   )
 }

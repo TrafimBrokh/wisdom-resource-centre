@@ -27,7 +27,7 @@ describe('resource details', () => {
     const user = userEvent.setup()
     render(<App resources={[resource(), resource({ id: '2', title: 'Another resource' })]} />)
     await user.click(screen.getByRole('button', { name: 'View Mindful Moments' }))
-    fireEvent.cancel(screen.getByRole('dialog'))
+    fireEvent(screen.getByRole('dialog'), new Event('cancel', { bubbles: true, cancelable: true }))
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
     await user.click(screen.getByRole('button', { name: 'View Another resource' }))
     expect(screen.getByRole('dialog', { name: 'Another resource' })).toBeInTheDocument()

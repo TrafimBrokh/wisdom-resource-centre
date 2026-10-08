@@ -15,4 +15,11 @@ describe('resource thumbnail', () => {
     expect(screen.getByRole('img', { name: 'Image unavailable for Mindful Moments' })).toBeInTheDocument()
     expect(screen.getByText('A moment for you')).toBeInTheDocument()
   })
+
+  it('tries a new source after a previous source failed', () => {
+    const { rerender } = render(<ResourceImage src="/broken.jpg" title="Mindful Moments" />)
+    fireEvent.error(screen.getByRole('img'))
+    rerender(<ResourceImage src="/new.jpg" title="Mindful Moments" />)
+    expect(screen.getByRole('img')).toHaveAttribute('src', '/new.jpg')
+  })
 })
