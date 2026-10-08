@@ -27,8 +27,4 @@ export interface ResourceGroup {
 }
 
 export type SortOrder =
-  | 'default'
-  | 'category-asc'
-  | 'category-desc'
-  | 'newest'
-  | 'oldest'
+  'default' | 'category-asc' | 'category-desc' | 'newest' | 'oldest'

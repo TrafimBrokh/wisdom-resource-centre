@@ -10,7 +10,8 @@ export const mockResources: readonly Resource[] = [
     thumbnail: 'https://www.datocms-assets.com/93767/1753971746-photo.jpg',
     tags: ['wellbeing', 'mindfulness', 'relaxation'],
     duration: 25,
-    description: 'A calming podcast focused on mindfulness techniques for daily life.',
+    description:
+      'A calming podcast focused on mindfulness techniques for daily life.',
     date_uploaded: '2025-07-10',
   },
   {
@@ -20,7 +21,8 @@ export const mockResources: readonly Resource[] = [
     thumbnail: 'https://www.datocms-assets.com/93767/1751891809-photo.jpg',
     tags: ['wellbeing', 'sleep', 'science'],
     duration: 8,
-    description: 'Explore the latest research on how sleep affects mental and physical health.',
+    description:
+      'Explore the latest research on how sleep affects mental and physical health.',
     date_uploaded: '2025-06-22',
   },
   {
@@ -30,7 +32,8 @@ export const mockResources: readonly Resource[] = [
     thumbnail: 'https://www.datocms-assets.com/93767/1753971221-photo.jpg',
     tags: ['community', 'tips', 'mindfulness'],
     duration: 5,
-    description: 'Your weekly dose of wellness tips and updates from our experts.',
+    description:
+      'Your weekly dose of wellness tips and updates from our experts.',
     date_uploaded: '2025-08-01',
   },
   {
@@ -40,7 +43,8 @@ export const mockResources: readonly Resource[] = [
     thumbnail: 'https://www.datocms-assets.com/93767/1755147783-smoothie.jpg',
     tags: ['nutrition', 'energy', 'tips'],
     duration: 10,
-    description: 'A quick and nutritious smoothie recipe to kickstart your day.',
+    description:
+      'A quick and nutritious smoothie recipe to kickstart your day.',
     date_uploaded: '2025-07-15',
   },
   {
@@ -50,7 +54,8 @@ export const mockResources: readonly Resource[] = [
     thumbnail: 'https://www.datocms-assets.com/93767/1753972252-photo.jpg',
     tags: ['mobility', 'energy', 'routine'],
     duration: 10,
-    description: 'A short and effective stretching routine to energize your mornings.',
+    description:
+      'A short and effective stretching routine to energize your mornings.',
     date_uploaded: '2025-08-05',
   },
   {
@@ -60,7 +65,8 @@ export const mockResources: readonly Resource[] = [
     thumbnail: 'https://www.datocms-assets.com/93767/1753971468-photo.jpg',
     tags: ['relaxation', 'routine', 'sleep'],
     duration: 15,
-    description: 'A soothing guided meditation to help you unwind and reduce stress.',
+    description:
+      'A soothing guided meditation to help you unwind and reduce stress.',
     date_uploaded: '2025-07-28',
   },
   {
@@ -70,7 +76,8 @@ export const mockResources: readonly Resource[] = [
     thumbnail: 'https://www.datocms-assets.com/93767/1753971221-photo.jpg',
     tags: ['balance', 'work', 'wellbeing'],
     duration: 18,
-    description: 'A conversation about making room for rest in a busy week, one small change at a time.',
+    description:
+      'A conversation about making room for rest in a busy week, one small change at a time.',
     date_uploaded: '2025-08-12',
   },
   {
@@ -80,7 +87,8 @@ export const mockResources: readonly Resource[] = [
     thumbnail: 'https://www.datocms-assets.com/93767/1753971468-photo.jpg',
     tags: ['mindfulness', 'habits', 'balance'],
     duration: 6,
-    description: 'Simple ideas for noticing the quieter moments in your day and making time for yourself.',
+    description:
+      'Simple ideas for noticing the quieter moments in your day and making time for yourself.',
     date_uploaded: '2025-08-08',
   },
   {
@@ -90,7 +98,8 @@ export const mockResources: readonly Resource[] = [
     thumbnail: 'https://www.datocms-assets.com/93767/1753971746-photo.jpg',
     tags: ['community', 'habits', 'inspiration'],
     duration: 4,
-    description: 'This week: a moment of reflection, a recipe to try and a reminder to reconnect with the people around you.',
+    description:
+      'This week: a moment of reflection, a recipe to try and a reminder to reconnect with the people around you.',
     date_uploaded: '2025-08-15',
   },
   {
@@ -100,7 +109,8 @@ export const mockResources: readonly Resource[] = [
     thumbnail: 'https://www.datocms-assets.com/93767/1755147783-smoothie.jpg',
     tags: ['nutrition', 'breakfast', 'routine'],
     duration: 12,
-    description: 'A flexible breakfast idea with oats, seasonal fruit and your favourite toppings.',
+    description:
+      'A flexible breakfast idea with oats, seasonal fruit and your favourite toppings.',
     date_uploaded: '2025-08-03',
   },
   {
@@ -110,7 +120,8 @@ export const mockResources: readonly Resource[] = [
     thumbnail: 'https://www.datocms-assets.com/93767/1753972252-photo.jpg',
     tags: ['movement', 'work', 'mobility'],
     duration: 5,
-    description: 'A short movement break to bring a little variety to your working day. Move at a pace that feels comfortable.',
+    description:
+      'A short movement break to bring a little variety to your working day. Move at a pace that feels comfortable.',
     date_uploaded: '2025-08-11',
   },
   {
@@ -120,7 +131,8 @@ export const mockResources: readonly Resource[] = [
     thumbnail: 'https://www.datocms-assets.com/93767/1751891809-photo.jpg',
     tags: ['relaxation', 'breathing', 'mindfulness'],
     duration: 5,
-    description: 'Settle into a comfortable position and take a quiet moment to notice your breathing at the end of the day.',
+    description:
+      'Settle into a comfortable position and take a quiet moment to notice your breathing at the end of the day.',
     date_uploaded: '2025-08-14',
   },
 ]

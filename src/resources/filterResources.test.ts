@@ -4,7 +4,12 @@ import { resource } from '../test/fixtures'
 
 describe('filterResources', () => {
   const podcast = resource()
-  const article = resource({ id: '2', title: 'The Science of Sleep', category: 'Articles', tags: ['science', 'rest'] })
+  const article = resource({
+    id: '2',
+    title: 'The Science of Sleep',
+    category: 'Articles',
+    tags: ['science', 'rest'],
+  })
   const items = [podcast, article]
 
   it('keeps every resource for an empty or whitespace-only query', () => {

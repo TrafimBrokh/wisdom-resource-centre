@@ -9,8 +9,12 @@ describe('catalogue ordering', () => {
   const items = [oldPodcast, article, newPodcast]
 
   it('sorts category names ascending and descending', () => {
-    expect(groupResources(items, 'category-asc').map((group) => group.category)).toEqual(['Articles', 'Podcasts'])
-    expect(groupResources(items, 'category-desc').map((group) => group.category)).toEqual(['Podcasts', 'Articles'])
+    expect(
+      groupResources(items, 'category-asc').map((group) => group.category),
+    ).toEqual(['Articles', 'Podcasts'])
+    expect(
+      groupResources(items, 'category-desc').map((group) => group.category),
+    ).toEqual(['Podcasts', 'Articles'])
   })
 
   it('sorts newest first within each category, retaining category grouping', () => {
@@ -21,12 +25,19 @@ describe('catalogue ordering', () => {
   })
 
   it('sorts oldest first within each category', () => {
-    expect(groupResources([newPodcast, oldPodcast], 'oldest')[0]?.resources).toEqual([oldPodcast, newPodcast])
+    expect(
+      groupResources([newPodcast, oldPodcast], 'oldest')[0]?.resources,
+    ).toEqual([oldPodcast, newPodcast])
   })
 
   it('preserves source order for equal dates', () => {
-    const sameDate = resource({ id: 'same', date_uploaded: newPodcast.date_uploaded })
-    expect(groupResources([newPodcast, sameDate], 'newest')[0]?.resources).toEqual([newPodcast, sameDate])
+    const sameDate = resource({
+      id: 'same',
+      date_uploaded: newPodcast.date_uploaded,
+    })
+    expect(
+      groupResources([newPodcast, sameDate], 'newest')[0]?.resources,
+    ).toEqual([newPodcast, sameDate])
   })
 
   it('does not mutate the input when sorting', () => {
